@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wedding Invitation | Jerin & Ann</title>
+  <meta name="description" content="Wedding invitation for Jerin John & Ann Taniya Peirera" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card">
+
+      <header class="hero">
+        <img class="heroImg" src="invite.jpg" alt="Wedding Invitation Background" />
+        <div class="overlay">
+          <div class="badge">Kerala Christian Wedding</div>
+          <p class="kicker">With prayers and blessings</p>
+
+          <h1 class="title">Jerin John</h1>
+          <div class="and">and</div>
+          <h1 class="title">Ann Taniya Peirera</h1>
+
+          <p class="subtitle">invite you to celebrate their Holy Matrimony</p>
+
+          <!-- Countdown -->
+          <div class="countdownWrap">
+            <div class="countTitle">Countdown to the Wedding</div>
+            <div class="countGrid" id="countdown">
+              <div class="countBox"><div class="num" id="dd">--</div><div class="lbl">Days</div></div>
+              <div class="countBox"><div class="num" id="hh">--</div><div class="lbl">Hours</div></div>
+              <div class="countBox"><div class="num" id="mm">--</div><div class="lbl">Minutes</div></div>
+              <div class="countBox"><div class="num" id="ss">--</div><div class="lbl">Seconds</div></div>
+            </div>
+            <div class="countNote" id="countNote"></div>
+          </div>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="pillRow">
+          <div class="pill">📅 25 May 2026</div>
+          <div class="pill">🕰️ 11:30 AM (IST)</div>
+        </div>
+
+        <div class="grid">
+          <div class="box">
+            <h2>⛪ Wedding Ceremony</h2>
+            <p class="big">St. Mary’s Kadheeshtha Orthodox Church</p>
+            <p class="muted">Thumpamon North, Kerala</p>
+
+            <a class="btn" id="mapsLink" href="#" target="_blank" rel="noreferrer">
+              Open Church Location in Google Maps
+            </a>
+
+            <div class="qrBlock">
+              <div class="qrTitle">Scan for Location</div>
+              <div id="qr"></div>
+              <div class="qrNote muted">Opens Google Maps</div>
+            </div>
+          </div>
+
+          <div class="box">
+            <h2>🎉 Reception</h2>
+            <p class="big">Church Auditorium</p>
+            <p class="muted">Reception follows the ceremony</p>
+
+            <div class="divider"></div>
+
+            <h2>🗓️ Add to Calendar</h2>
+            <p class="muted">Save the event in your Google Calendar.</p>
+            <a class="btn secondary" id="calendarBtn" href="#" target="_blank" rel="noreferrer">
+              Add to Google Calendar
+            </a>
+          </div>
+
+          <div class="box full">
+            <h2>💌 Invitation</h2>
+            <p class="message">
+              With joyful hearts and God’s grace, we invite you and your family to join us for the wedding ceremony
+              and reception. Your presence and blessings will make our day truly complete.
+            </p>
+
+            <div class="divider"></div>
+
+            <h2>🌸 Wishes</h2>
+            <p class="muted">With love and blessings from</p>
+            <ul class="wishes">
+              <li><span class="wishName">Brother:</span> <span class="wishText">“May God bless your new journey together.”</span></li>
+              <li><span class="wishName">Cousins:</span> <span class="wishText">“Wishing you a lifetime of joy, peace, and love.”</span></li>
+              <li><span class="wishName">Family:</span> <span class="wishText">“We are excited to celebrate this beautiful day with you.”</span></li>
+            </ul>
+
+            <div class="actions">
+              <a class="btn ghost" id="whatsAppBtn" href="#" target="_blank" rel="noreferrer">WhatsApp RSVP</a>
+              <a class="btn ghost" id="callBtn" href="#">Call</a>
+            </div>
+
+            <p class="muted tiny">
+              Tip: Change RSVP number + wishes in <code>script.js</code> / <code>index.html</code>.
+            </p>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div class="footItem">🕊️ “Love is patient, love is kind…”</div>
+          <div class="footItem muted">Dress code: Elegant / Traditional</div>
+        </footer>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

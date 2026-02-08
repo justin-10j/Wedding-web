@@ -7,7 +7,6 @@
   --ivory:#fff7e6;
   --maroon:#7a1f2b;
   --gold:#f5d48a;
-  --accent:#b89b5e;
   --shadow: 0 18px 55px rgba(0,0,0,.45);
   --radius: 22px;
 }
@@ -42,28 +41,13 @@ body{
   border: 1px solid rgba(255,255,255,.12);
 }
 
-.hero{
-  position:relative;
-  height: 460px;
-  background:#111;
-}
-
-.heroImg{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  filter: contrast(1.05) saturate(1.05);
-}
+.hero{ position:relative; height: 470px; background:#111; }
+.heroImg{ width:100%; height:100%; object-fit:cover; display:block; filter: contrast(1.05) saturate(1.05); }
 
 .overlay{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  gap:6px;
-  padding:28px 22px;
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  gap:6px; padding:28px 22px;
   background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.80));
 }
 
@@ -80,13 +64,7 @@ body{
   border: 1px solid rgba(245,212,138,.25);
 }
 
-.kicker{
-  margin:6px 0 0;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  font-size:12px;
-  color:var(--muted);
-}
+.kicker{ margin:6px 0 0; letter-spacing:.12em; text-transform:uppercase; font-size:12px; color:var(--muted); }
 
 .title{
   margin:0;
@@ -96,22 +74,9 @@ body{
   text-shadow: 0 10px 40px rgba(0,0,0,.6);
 }
 
-.and{
-  margin:0;
-  font-size:14px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color: rgba(255,255,255,.88);
-}
+.and{ margin:0; font-size:14px; letter-spacing:.16em; text-transform:uppercase; color: rgba(255,255,255,.88); }
+.subtitle{ margin:6px 0 0; font-size:15px; color: rgba(255,255,255,.92); max-width: 56ch; }
 
-.subtitle{
-  margin:6px 0 0;
-  font-size:15px;
-  color: rgba(255,255,255,.92);
-  max-width: 56ch;
-}
-
-/* Countdown */
 .countdownWrap{
   margin-top: 14px;
   padding: 12px;
@@ -120,72 +85,18 @@ body{
   border: 1px solid rgba(245,212,138,.18);
   max-width: 520px;
 }
+.countTitle{ font-weight:800; color: var(--ivory); margin-bottom: 8px; }
+.countGrid{ display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap:10px; }
+.countBox{ background: rgba(8,14,26,.65); border: 1px solid rgba(255,255,255,.10); border-radius: 14px; padding:10px 8px; text-align:center; }
+.num{ font-size:22px; font-weight:900; color: var(--gold); line-height:1.1; }
+.lbl{ margin-top:4px; font-size:12px; color: var(--muted); letter-spacing:.08em; text-transform:uppercase; }
+.countNote{ margin-top:8px; font-size:12px; color: rgba(255,255,255,.85); }
 
-.countTitle{
-  font-weight:800;
-  color: var(--ivory);
-  margin-bottom: 8px;
-}
-
-.countGrid{
-  display:grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap:10px;
-}
-
-.countBox{
-  background: rgba(8,14,26,.65);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 14px;
-  padding:10px 8px;
-  text-align:center;
-}
-
-.num{
-  font-size:22px;
-  font-weight:900;
-  color: var(--gold);
-  line-height:1.1;
-}
-
-.lbl{
-  margin-top:4px;
-  font-size:12px;
-  color: var(--muted);
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-.countNote{
-  margin-top:8px;
-  font-size:12px;
-  color: rgba(255,255,255,.85);
-}
-
-/* Layout */
 .content{ padding: 18px 18px 16px; }
+.pillRow{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 14px; }
+.pill{ padding:10px 12px; border-radius: 999px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); color: var(--ivory); font-weight:700; }
 
-.pillRow{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom: 14px;
-}
-
-.pill{
-  padding:10px 12px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.12);
-  color: var(--ivory);
-  font-weight:700;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:14px;
-}
+.grid{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:14px; }
 
 .box{
   background: rgba(8,14,26,.72);
@@ -193,54 +104,19 @@ body{
   border-radius: 18px;
   padding:16px 16px 14px;
 }
-
 .box.full{ grid-column: 1 / -1; }
 
-.box h2{
-  margin:0 0 10px;
-  font-size:16px;
-  letter-spacing:.02em;
-}
-
-.big{
-  font-size:18px;
-  margin:0 0 4px;
-  color:#fff;
-}
-
+.box h2{ margin:0 0 10px; font-size:16px; letter-spacing:.02em; }
+.big{ font-size:18px; margin:0 0 4px; color:#fff; }
 .muted{ color: var(--muted); }
 .tiny{ font-size: 12px; }
 
-.message{
-  margin:0;
-  color: var(--muted);
-  line-height:1.6;
-}
+.message{ margin:0; color: var(--muted); line-height:1.6; }
+.divider{ margin:14px 0; height:1px; background: rgba(255,255,255,.10); }
 
-.divider{
-  margin:14px 0;
-  height:1px;
-  background: rgba(255,255,255,.10);
-}
-
-.wishes{
-  list-style:none;
-  padding:0;
-  margin:10px 0 0;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.wishName{
-  color: var(--gold);
-  font-weight:900;
-}
-
-.wishText{
-  color: var(--ivory);
-  opacity:.95;
-}
+.wishes{ list-style:none; padding:0; margin:10px 0 0; display:flex; flex-direction:column; gap:10px; }
+.wishName{ color: var(--gold); font-weight:900; }
+.wishText{ color: var(--ivory); opacity:.95; }
 
 .btn{
   display:inline-block;
@@ -254,60 +130,61 @@ body{
   transition: transform .12s ease, opacity .12s ease;
 }
 .btn:hover{ transform: translateY(-1px); opacity:.95; }
+.btn.secondary{ background: rgba(184,155,94,.92); color:#0b1220; }
+.btn.ghost{ background: rgba(255,255,255,.08); border: 1px solid rgba(245,212,138,.22); color: var(--ivory); font-weight:800; }
 
-.btn.secondary{
-  background: rgba(184,155,94,.92);
-  color: #0b1220;
-}
-
-.btn.ghost{
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(245,212,138,.22);
-  color: var(--ivory);
-  font-weight:800;
-}
-
-.actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top: 14px;
-}
+.actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
 
 .qrBlock{
-  margin-top:14px;
-  padding:12px;
-  border-radius:14px;
+  margin-top:14px; padding:12px; border-radius:14px;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.10);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:8px;
+  display:flex; flex-direction:column; align-items:center; gap:8px;
 }
-
 .qrTitle{ font-weight:800; color: var(--ivory); }
-
-#qr img, #qr canvas{
-  border-radius: 10px;
-  background: #fff;
-  padding: 6px;
-}
+#qr img, #qr canvas{ border-radius: 10px; background:#fff; padding:6px; }
 
 .footer{
-  margin-top:14px;
-  padding-top:12px;
+  margin-top:14px; padding-top:12px;
   border-top: 1px solid rgba(255,255,255,.10);
-  display:flex;
-  gap:10px;
-  justify-content:space-between;
-  flex-wrap:wrap;
+  display:flex; gap:10px; justify-content:space-between; flex-wrap:wrap;
 }
-
 .footItem{ font-size:13px; }
 
+/* ===== Wishes page ===== */
+.miniHero{
+  padding: 22px;
+  background: rgba(8,14,26,.72);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.miniOverlay{ display:flex; flex-direction:column; gap:10px; }
+.miniTitle{ margin:0; font-size: clamp(26px, 4vw, 40px); color: var(--gold); }
+.navRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 6px; }
+
+.form{ display:flex; flex-direction:column; gap:12px; }
+input, textarea{
+  width:100%; margin-top:6px; padding:10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: var(--ivory);
+  outline:none;
+}
+textarea{ resize: vertical; }
+
+.wall{ display:flex; flex-direction:column; gap:12px; margin-top: 10px; }
+.wishCard{
+  padding:12px; border-radius:16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+}
+.wishHeader{ display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px; }
+.wishNameWall{ font-weight:900; color: var(--gold); }
+.wishMsgWall{ color: var(--ivory); opacity:.95; line-height:1.5; white-space: pre-wrap; }
+.media{ width:100%; margin-top:10px; border-radius: 14px; border: 1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.25); }
+
 @media (max-width: 720px){
-  .hero{ height: 520px; }
+  .hero{ height: 560px; }
   .grid{ grid-template-columns: 1fr; }
   .box.full{ grid-column: auto; }
   .countGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }

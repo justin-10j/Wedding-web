@@ -31,7 +31,6 @@ function renderItem(d){
   `;
 }
 
-// Live wall
 const q = query(wishesCol, orderBy("createdAt", "desc"));
 onSnapshot(q, (snap) => {
   const items = [];
@@ -45,12 +44,9 @@ form.addEventListener("submit", async (e) => {
   statusEl.textContent = "Posting…";
 
   try {
-    const name = nameEl.value.trim();
-    const message = msgEl.value.trim();
-
     await addDoc(wishesCol, {
-      name,
-      message,
+      name: nameEl.value.trim(),
+      message: msgEl.value.trim(),
       createdAt: serverTimestamp()
     });
 

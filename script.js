@@ -1,13 +1,9 @@
-// ===============================
 // ✅ EDIT THESE
-// ===============================
-const RSVP_PHONE = "+91XXXXXXXXXX"; // change to your number (include country code)
+const RSVP_PHONE = "+91XXXXXXXXXX"; // change to your number with country code
 const VENUE_NAME = "St. Mary's Kadheeshtha Orthodox Church, Thumpamon North, Kerala";
 const RECEPTION_NAME = "Church Auditorium";
 
-// ===============================
 // Maps + QR
-// ===============================
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(VENUE_NAME)}`;
 document.getElementById("mapsLink").href = mapsUrl;
 
@@ -24,10 +20,7 @@ document.getElementById("whatsAppBtn").href =
   )}`;
 document.getElementById("callBtn").href = `tel:${RSVP_PHONE}`;
 
-// ===============================
 // Google Calendar (IST)
-// Date: 25/05/2026 11:30 AM IST
-// ===============================
 const title = "Wedding | Jerin John & Ann Taniya Peirera";
 const details = `Wedding Ceremony at ${VENUE_NAME}. Reception: ${RECEPTION_NAME}.`;
 const location = `${VENUE_NAME} | Reception: ${RECEPTION_NAME}`;
@@ -45,19 +38,15 @@ const gcalUrl =
 
 document.getElementById("calendarBtn").href = gcalUrl;
 
-// ===============================
-// ✅ Countdown to 25 May 2026, 11:30 AM IST
-// We calculate time left based on IST (UTC+5:30)
-// ===============================
+// Countdown to 25 May 2026, 11:30 AM IST
 const dd = document.getElementById("dd");
 const hh = document.getElementById("hh");
 const mm = document.getElementById("mm");
 const ss = document.getElementById("ss");
 const note = document.getElementById("countNote");
 
-// Wedding datetime in IST: 2026-05-25 11:30:00 IST
-// Convert IST to UTC by subtracting 5 hours 30 mins
-const weddingUTC = Date.UTC(2026, 4, 25, 6, 0, 0); // May=4, 11:30 IST -> 06:00 UTC
+// IST is UTC+5:30, so 11:30 IST = 06:00 UTC
+const weddingUTC = Date.UTC(2026, 4, 25, 6, 0, 0); // May is 4
 
 function pad(n){ return String(n).padStart(2, "0"); }
 

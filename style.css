@@ -42,7 +42,16 @@ body{
 }
 
 .hero{ position:relative; height: 470px; background:#111; }
-.heroImg{ width:100%; height:100%; object-fit:cover; display:block; filter: contrast(1.05) saturate(1.05); }
+.heroImg{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position: center 20%; /* moves image down/up */
+  display:block;
+  filter: contrast(1.05) saturate(1.05);
+}
+
+
 
 .overlay{
   position:absolute; inset:0;
@@ -184,7 +193,9 @@ textarea{ resize: vertical; }
 .media{ width:100%; margin-top:10px; border-radius: 14px; border: 1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.25); }
 
 @media (max-width: 720px){
-  .hero{ height: 560px; }
+  .hero{
+  height: min(520px, 70vh);
+}
   .grid{ grid-template-columns: 1fr; }
   .box.full{ grid-column: auto; }
   .countGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }

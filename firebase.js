@@ -1,8 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
-import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
 
-// 🔥 Paste your Firebase config (Project settings → Web app)
+// 🔥 Paste your Firebase config here (Firebase Console → Project settings → Your apps → Web app)
 const firebaseConfig = {
   apiKey: "PASTE_HERE",
   authDomain: "PASTE_HERE",
@@ -14,4 +13,3 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-export const storage = getStorage(app);

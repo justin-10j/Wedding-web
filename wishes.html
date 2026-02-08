@@ -1,1 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wish Wall | Jerin & Ann</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
+<body>
+  <main class="wrap">
+    <section class="card">
+
+      <header class="miniHero">
+        <div class="miniOverlay">
+          <div class="badge">Blessings & Wishes</div>
+          <h1 class="miniTitle">Wish Wall</h1>
+          <p class="muted">Post your wishes + upload photos/videos for the couple.</p>
+
+          <div class="navRow">
+            <a class="btn ghost" href="./index.html">← Back to Invitation</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="grid">
+          <div class="box">
+            <h2>📝 Add a Wish</h2>
+
+            <form id="wishForm" class="form">
+              <label>
+                <span class="muted">Your Name</span>
+                <input id="name" required maxlength="40" placeholder="Eg: Amal / Anju" />
+              </label>
+
+              <label>
+                <span class="muted">Your Wish</span>
+                <textarea id="message" required maxlength="400" rows="4"
+                  placeholder="Write your blessing…"></textarea>
+              </label>
+
+              <label>
+                <span class="muted">Photo/Video (optional)</span>
+                <input id="file" type="file" accept="image/*,video/*" />
+                <div class="muted tiny">Tip: Keep videos short (10–20s) so it uploads fast.</div>
+              </label>
+
+              <button class="btn" id="submitBtn" type="submit">Post Wish</button>
+              <div class="muted tiny" id="status"></div>
+            </form>
+          </div>
+
+          <div class="box">
+            <h2>✨ Latest Wishes</h2>
+            <div id="wall" class="wall"></div>
+          </div>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <script type="module" src="./wishes.js"></script>
+</body>
+</html>

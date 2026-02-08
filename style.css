@@ -189,3 +189,34 @@ textarea{ resize: vertical; }
   .box.full{ grid-column: auto; }
   .countGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* ===== Wishes page ===== */
+.miniHero{
+  padding: 22px;
+  background: rgba(8,14,26,.72);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.miniOverlay{ display:flex; flex-direction:column; gap:10px; }
+.miniTitle{ margin:0; font-size: clamp(26px, 4vw, 40px); color: var(--gold); }
+.navRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 6px; }
+
+.form{ display:flex; flex-direction:column; gap:12px; }
+input, textarea{
+  width:100%; margin-top:6px; padding:10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: var(--ivory);
+  outline:none;
+}
+textarea{ resize: vertical; }
+
+.wall{ display:flex; flex-direction:column; gap:12px; margin-top: 10px; }
+.wishCard{
+  padding:12px; border-radius:16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+}
+.wishHeader{ display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px; }
+.wishNameWall{ font-weight:900; color: var(--gold); }
+.wishMsgWall{ color: var(--ivory); opacity:.95; line-height:1.5; white-space: pre-wrap; }

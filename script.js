@@ -1,65 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // ===== EDIT THESE =====
-  const RSVP_PHONE = "+91XXXXXXXXXX"; // change
-  const VENUE_NAME = "St. Mary's Kadheeshtha Orthodox Church, Thumpamon North, Kerala";
-  const RECEPTION_NAME = "Church Auditorium";
+document.addEventListener("DOMContentLoaded", function () {
 
-  // Small helper
-  const $ = (id) => document.getElementById(id);
+  // ===== Countdown =====
+  const dd = document.getElementById("dd");
+  const hh = document.getElementById("hh");
+  const mm = document.getElementById("mm");
+  const ss = document.getElementById("ss");
+  const note = document.getElementById("countNote");
 
-  // ===== Maps + QR =====
-  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(VENUE_NAME)}`;
-
-  const mapsLink = $("mapsLink");
-  if (mapsLink) mapsLink.href = mapsUrl;
-
-  // QRCode library must be loaded before this runs (we handle safely)
-  const qrEl = $("qr");
-  if (qrEl && window.QRCode) {
-    qrEl.innerHTML = ""; // avoid duplicate QR on refresh
-    new QRCode(qrEl, { text: mapsUrl, width: 180, height: 180 });
-  }
-
-  // ===== RSVP buttons =====
-  const waBtn = $("whatsAppBtn");
-  if (waBtn) {
-    waBtn.href =
-      `https://wa.me/${RSVP_PHONE.replace(/[^\d]/g, "")}?text=${encodeURIComponent(
-        "Hi! I’d like to RSVP for the wedding of Jerin John & Ann Taniya Perera."
-      )}`;
-  }
-
-  const callBtn = $("callBtn");
-  if (callBtn) callBtn.href = `tel:${RSVP_PHONE}`;
-
-  // ===== Google Calendar (IST) =====
-  const title = "Wedding | Jerin John & Ann Taniya Perera";
-  const details = `Wedding Ceremony at ${VENUE_NAME}. Reception: ${RECEPTION_NAME}.`;
-  const location = `${VENUE_NAME} | Reception: ${RECEPTION_NAME}`;
-  const ctz = "Asia/Kolkata";
-  const start = "20260525T113000";
-  const end = "20260525T140000";
-
-  const gcalUrl =
-    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-    `&text=${encodeURIComponent(title)}` +
-    `&details=${encodeURIComponent(details)}` +
-    `&location=${encodeURIComponent(location)}` +
-    `&dates=${start}/${end}` +
-    `&ctz=${encodeURIComponent(ctz)}`;
-
-  const calendarBtn = $("calendarBtn");
-  if (calendarBtn) calendarBtn.href = gcalUrl;
-
-  // ===== Countdown (25 May 2026, 11:30 AM IST) =====
-  // IST is UTC+5:30 → 11:30 IST = 06:00 UTC
+  // 25 May 2026 11:30 IST = 06:00 UTC
   const weddingUTC = Date.UTC(2026, 4, 25, 6, 0, 0);
-
-  const dd = $("dd");
-  const hh = $("hh");
-  const mm = $("mm");
-  const ss = $("ss");
-  const note = $("countNote");
 
   function pad(n) {
     return String(n).padStart(2, "0");
@@ -68,32 +17,29 @@ document.addEventListener("DOMContentLoaded", () => {
   function tick() {
     const diff = weddingUTC - Date.now();
 
-    // If countdown elements are missing, stop quietly
-    if (!dd || !hh || !mm || !ss) return;
-
     if (diff <= 0) {
       dd.textContent = "00";
       hh.textContent = "00";
       mm.textContent = "00";
       ss.textContent = "00";
-      if (note) note.textContent = "🎊 It’s wedding time! May God bless the couple.";
+      if (note) note.textContent = "🎊 It’s wedding time!";
       return;
     }
 
-    const totalSeconds = Math.floor(diff / 1000);
-    const days = Math.floor(totalSeconds / 86400);
-    const hours = Math.floor((totalSeconds % 86400) / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
+    const total = Math.floor(diff / 1000);
+
+    const days = Math.floor(total / 86400);
+    const hours = Math.floor((total % 86400) / 3600);
+    const minutes = Math.floor((total % 3600) / 60);
+    const seconds = total % 60;
 
     dd.textContent = pad(days);
     hh.textContent = pad(hours);
     mm.textContent = pad(minutes);
     ss.textContent = pad(seconds);
-
-    if (note) note.textContent = "⛪ Ceremony begins at 11:30 AM IST";
   }
 
   tick();
   setInterval(tick, 1000);
+
 });

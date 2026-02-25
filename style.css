@@ -1,17 +1,20 @@
 :root{
-  /* Romantic theme */
-  --bg1:#fff7fb;
-  --bg2:#fff1f6;
+  /* Romantic (NO white cards) */
+  --bg1:#fff3f7;
+  --bg2:#f7f0ff;
 
-  --card: rgba(255,255,255,.72);
-  --shadow: 0 18px 55px rgba(31,41,55,.22);
-  --text:#1f2937;
-  --muted:#6b7280;
+  --text:#3b1a20;
+  --muted:#7b5a60;
 
-  --ivory:#ffffff;
   --maroon:#7a1f2b;
   --gold:#d9a441;
 
+  /* Glass surfaces (tinted, not white) */
+  --card: rgba(122,31,43,.06);
+  --panel: rgba(122,31,43,.07);
+  --panel2: rgba(122,31,43,.10);
+
+  --shadow: 0 18px 50px rgba(122,31,43,.18);
   --radius: 22px;
 }
 
@@ -23,7 +26,7 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color:var(--text);
   background:
-    radial-gradient(900px 600px at 15% 10%, rgba(255,170,200,.20), transparent 60%),
+    radial-gradient(900px 600px at 15% 10%, rgba(255,170,200,.22), transparent 60%),
     radial-gradient(900px 600px at 85% 20%, rgba(217,164,65,.12), transparent 60%),
     linear-gradient(180deg, var(--bg1), var(--bg2));
 }
@@ -40,30 +43,31 @@ body{
   width:min(980px, 100%);
   border-radius:var(--radius);
   overflow:hidden;
+
   background: var(--card);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
   box-shadow: var(--shadow);
-  border: 1px solid rgba(31,41,55,.10);
+  border: 1px solid rgba(122,31,43,.14);
 }
 
 /* HERO */
 .hero{
   position:relative;
   height: min(560px, 72vh);
-  background:#fff;
+  background: transparent;
 }
 
 .heroImg{
   width:100%;
   height:100%;
   object-fit:cover;
-  /* adjust if needed: center 45% shows more lower part */
   object-position: center 35%;
   display:block;
-  filter:none;
 }
 
-/* Desktop: light overlay from LEFT only (photo stays clear) */
+/* Desktop: tinted overlay from LEFT only (not white) */
 .overlay{
   position:absolute;
   inset:0;
@@ -74,10 +78,10 @@ body{
   padding:28px 22px;
 
   background: linear-gradient(90deg,
-    rgba(255,255,255,.86) 0%,
-    rgba(255,255,255,.62) 44%,
-    rgba(255,255,255,.12) 72%,
-    rgba(255,255,255,0) 100%);
+    rgba(255,243,247,.70) 0%,
+    rgba(255,243,247,.42) 44%,
+    rgba(255,243,247,.10) 72%,
+    rgba(255,243,247,0) 100%);
 }
 
 .badge{
@@ -88,8 +92,9 @@ body{
   font-size:12px;
   letter-spacing:.08em;
   text-transform:uppercase;
-  color:#5b1b27;
-  background: rgba(255,255,255,.72);
+
+  color: #5b1b27;
+  background: rgba(255,243,247,.55);
   border: 1px solid rgba(122,31,43,.18);
 }
 
@@ -98,7 +103,7 @@ body{
   letter-spacing:.12em;
   text-transform:uppercase;
   font-size:12px;
-  color: rgba(31,41,55,.65);
+  color: rgba(59,26,32,.75);
 }
 
 .title{
@@ -114,29 +119,34 @@ body{
   font-size:14px;
   letter-spacing:.16em;
   text-transform:uppercase;
-  color: rgba(31,41,55,.72);
+  color: rgba(59,26,32,.72);
 }
 
 .subtitle{
   margin:6px 0 0;
   font-size:15px;
-  color: rgba(31,41,55,.86);
+  color: rgba(59,26,32,.82);
   max-width: 56ch;
 }
 
-/* Countdown */
+/* Countdown (desktop) */
 .countdownWrap{
   margin-top: 14px;
   padding: 12px;
   border-radius: 16px;
-  background: rgba(255,255,255,.72);
-  border: 1px solid rgba(31,41,55,.10);
+
+  background: rgba(122,31,43,.10);
+  border: 1px solid rgba(122,31,43,.18);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
   max-width: 520px;
 }
 
 .countTitle{
   font-weight:900;
-  color: rgba(31,41,55,.92);
+  color: rgba(59,26,32,.92);
   margin-bottom: 8px;
 }
 
@@ -147,8 +157,8 @@ body{
 }
 
 .countBox{
-  background: rgba(255,255,255,.80);
-  border: 1px solid rgba(31,41,55,.10);
+  background: rgba(122,31,43,.14);
+  border: 1px solid rgba(255,255,255,.18);
   border-radius: 14px;
   padding:10px 8px;
   text-align:center;
@@ -157,14 +167,14 @@ body{
 .num{
   font-size:22px;
   font-weight:900;
-  color: var(--maroon);
+  color: #5b1b27;
   line-height:1.1;
 }
 
 .lbl{
   margin-top:4px;
   font-size:12px;
-  color: rgba(31,41,55,.65);
+  color: rgba(59,26,32,.72);
   letter-spacing:.08em;
   text-transform:uppercase;
 }
@@ -172,9 +182,10 @@ body{
 .countNote{
   margin-top:8px;
   font-size:12px;
-  color: rgba(31,41,55,.78);
+  color: rgba(59,26,32,.78);
 }
 
+/* Content */
 .content{ padding: 18px 18px 16px; }
 
 .pillRow{
@@ -184,42 +195,51 @@ body{
   margin-bottom: 14px;
 }
 
+/* If you still use <div class="pill"> keep it styled */
 .pill{
   padding:10px 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,.75);
-  border: 1px solid rgba(31,41,55,.10);
-  color: rgba(31,41,55,.92);
-  font-weight:800;
+  background: rgba(122,31,43,.10);
+  border: 1px solid rgba(122,31,43,.18);
+  color: rgba(59,26,32,.92);
+  font-weight:900;
 }
+
+/* If you use <a class="pillLink"> for phone calendar */
+.pillLink{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+
+  background: rgba(122,31,43,.10);
+  border: 1px solid rgba(122,31,43,.18);
+
+  color: rgba(59,26,32,.92);
+  font-weight:900;
+  text-decoration:none;
+}
+.pillLink:hover{ opacity:.95; }
 
 .grid{
   display:grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:14px;
+  gap:18px;
 }
 
 .box{
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,.55),
-    rgba(255,255,255,.35)
-  );
-
+  background: var(--panel);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
-  border: 1px solid rgba(255,255,255,.45);
+  border: 1px solid rgba(122,31,43,.18);
   border-radius: 18px;
   padding:16px 16px 14px;
 
   box-shadow:
-    0 10px 25px rgba(122,31,43,.08),
-    inset 0 1px 0 rgba(255,255,255,.6);
-}
-
-.grid{
-  gap:18px;   /* was 14px */
+    0 10px 25px rgba(122,31,43,.10),
+    inset 0 1px 0 rgba(255,255,255,.25);
 }
 
 .box.full{ grid-column: 1 / -1; }
@@ -227,14 +247,15 @@ body{
 .box h2{
   margin:0 0 10px;
   font-size:16px;
+  font-weight:900;
   letter-spacing:.02em;
-  color: rgba(31,41,55,.92);
+  color:#6b1d2b;
 }
 
 .big{
   font-size:18px;
   margin:0 0 4px;
-  color: rgba(31,41,55,.92);
+  color: rgba(59,26,32,.92);
 }
 
 .muted{ color: var(--muted); }
@@ -242,23 +263,19 @@ body{
 
 .message{
   margin:0;
-  color: rgba(31,41,55,.72);
+  color: rgba(59,26,32,.78);
   line-height:1.6;
 }
 
 .divider{
+  margin:14px 0;
+  height:1px;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(122,31,43,.25),
+    rgba(122,31,43,.28),
     transparent
   );
-}
-
-.box h2{
-  color:#6b1d2b;
-  font-weight:900;
-  letter-spacing:.02em;
 }
 
 .wishes{
@@ -270,8 +287,8 @@ body{
   gap:10px;
 }
 
-.wishName{ color: var(--maroon); font-weight:900; }
-.wishText{ color: rgba(31,41,55,.82); }
+.wishName{ color: #5b1b27; font-weight:900; }
+.wishText{ color: rgba(59,26,32,.82); }
 
 /* Buttons */
 .btn{
@@ -279,37 +296,28 @@ body{
   margin-top:10px;
   padding:10px 14px;
   border-radius: 12px;
-  color:#1f2937;
+
+  color:#3b1a20;
   background: rgba(217,164,65,.85);
-  border: 1px solid rgba(31,41,55,.10);
+  border: 1px solid rgba(122,31,43,.12);
+
   text-decoration:none;
   font-weight:900;
   transition: transform .12s ease, opacity .12s ease;
 }
-
 .btn:hover{ transform: translateY(-1px); opacity:.95; }
 
 .btn.secondary{
-  background: linear-gradient(
-    135deg,
-    #f7d9a6,
-    #e8b86a
-  );
+  background: linear-gradient(135deg, #f7d9a6, #e8b86a);
   color:#3b1a0f;
   border: none;
   box-shadow: 0 6px 14px rgba(217,164,65,.35);
 }
 
-.card{
-  background: rgba(255,255,255,.55);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255,255,255,.5);
-}
-
 .btn.ghost{
-  background: rgba(255,255,255,.72);
+  background: rgba(122,31,43,.10);
   border: 1px solid rgba(122,31,43,.18);
-  color:#1f2937;
+  color: rgba(59,26,32,.92);
   font-weight:900;
 }
 
@@ -325,15 +333,17 @@ body{
   margin-top:14px;
   padding:12px;
   border-radius:14px;
-  background: rgba(255,255,255,.72);
-  border: 1px solid rgba(31,41,55,.10);
+
+  background: rgba(122,31,43,.08);
+  border: 1px solid rgba(122,31,43,.18);
+
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:8px;
 }
 
-.qrTitle{ font-weight:900; color: rgba(31,41,55,.92); }
+.qrTitle{ font-weight:900; color: rgba(59,26,32,.92); }
 
 #qrImg{
   width: 180px;
@@ -347,22 +357,20 @@ body{
 .footer{
   margin-top:14px;
   padding-top:12px;
-  border-top: 1px solid rgba(31,41,55,.10);
+  border-top: 1px solid rgba(122,31,43,.15);
   display:flex;
   gap:10px;
   justify-content:space-between;
   flex-wrap:wrap;
 }
-
 .footItem{ font-size:13px; }
 
 /* ===== Wishes page ===== */
 .miniHero{
   padding: 22px;
-  background: rgba(255,255,255,.82);
-  border-bottom: 1px solid rgba(31,41,55,.10);
+  background: rgba(122,31,43,.06);
+  border-bottom: 1px solid rgba(122,31,43,.15);
 }
-
 .miniOverlay{ display:flex; flex-direction:column; gap:10px; }
 
 .miniTitle{
@@ -380,12 +388,13 @@ input, textarea{
   margin-top:6px;
   padding:10px 12px;
   border-radius: 12px;
-  border: 1px solid rgba(31,41,55,.12);
-  background: rgba(255,255,255,.86);
-  color: rgba(31,41,55,.92);
+
+  border: 1px solid rgba(122,31,43,.18);
+  background: rgba(122,31,43,.06);
+
+  color: rgba(59,26,32,.92);
   outline:none;
 }
-
 textarea{ resize: vertical; }
 
 .wall{
@@ -398,8 +407,8 @@ textarea{ resize: vertical; }
 .wishCard{
   padding:12px;
   border-radius:16px;
-  border: 1px solid rgba(31,41,55,.10);
-  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(122,31,43,.15);
+  background: rgba(122,31,43,.06);
 }
 
 .wishHeader{
@@ -412,152 +421,60 @@ textarea{ resize: vertical; }
 .wishNameWall{ font-weight:900; color: #5b1b27; }
 
 .wishMsgWall{
-  color: rgba(31,41,55,.86);
+  color: rgba(59,26,32,.86);
   line-height:1.5;
   white-space: pre-wrap;
 }
 
+/* ===== Mobile ===== */
 @media (max-width: 720px){
-  .grid{ grid-template-columns: 1fr; }
-  .box.full{ grid-column: auto; }
-  .countGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-  .hero{ height: 660px; }
-
-  /* Keep the photo clear */
-  .heroImg{
-    object-position: center 25%;
-  }
-
-  /* Put content in a bottom glass card (no face overlap) */
-  .overlay{
-    justify-content:flex-end;
-    padding: 14px;
-    gap:10px;
-
-    /* No big white wash over the image */
-    background: linear-gradient(180deg,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,.08) 55%,
-      rgba(0,0,0,.35) 100%);
-  }
-
-  /* Make the text area itself a readable card */
-  .badge{ margin-bottom: 6px; }
-
-  .kicker, .and, .subtitle{ color: rgba(255,255,255,.90); }
-
-  .title{
-    color: #fff;
-    text-shadow: 0 10px 26px rgba(0,0,0,.55);
-  }
-
-  /* Turn countdown into a glass card */
-  .countdownWrap{
-    background: rgba(255,255,255,.14);
-    border: 1px solid rgba(255,255,255,.20);
-    backdrop-filter: blur(10px);
-  }
-
-  .countTitle{ color: rgba(255,255,255,.92); }
-  .countBox{
-    background: rgba(0,0,0,.28);
-    border: 1px solid rgba(255,255,255,.18);
-  }
-  .num{ color: #fff; }
-  .lbl{ color: rgba(255,255,255,.80); }
-  .countNote{ color: rgba(255,255,255,.85); }
-}
-
-.pillLink{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:10px 12px;
-  border-radius:999px;
-  background: rgba(255,255,255,.75);
-  border: 1px solid rgba(31,41,55,.10);
-  color: rgba(31,41,55,.92);
-  font-weight:800;
-  text-decoration:none;
-}
-.pillLink:hover{ opacity:.95; }
-
-/* ===== Mobile polish (paste-at-end overrides) ===== */
-@media (max-width: 720px){
-
-  /* 1) remove extra space feeling */
   .wrap{
     padding: 14px 12px;
     align-items: flex-start;
   }
 
-  .card{
-    border-radius: 18px;
-  }
+  .grid{ grid-template-columns: 1fr; }
+  .box.full{ grid-column: auto; }
+  .countGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-  /* 2) Make hero smaller + move faces up so text won't overlap */
-  .hero{
-    height: 560px;              /* reduced from 660 */
-  }
-  .heroImg{
-    object-position: center 10%; /* shows faces higher (less overlap) */
-  }
+  /* less tall hero = less top gap */
+  .hero{ height: 560px; }
 
-  /* 3) Put overlay content lower without huge gap */
+  /* Push faces up (reduces text-on-face overlap) */
+  .heroImg{ object-position: center 10%; }
+
+  /* Dark gentle gradient, not white */
   .overlay{
+    justify-content:flex-end;
     padding: 12px;
     gap: 8px;
-    justify-content: flex-end;
-
-    /* Dark, subtle gradient so photo stays visible */
     background: linear-gradient(180deg,
       rgba(0,0,0,0) 0%,
       rgba(0,0,0,.08) 60%,
       rgba(0,0,0,.32) 100%);
   }
 
-  /* Make text smaller on mobile so it doesn't spread over face */
+  /* Mobile text = smaller, cleaner */
   .title{
     font-size: 32px;
     line-height: 1.02;
-    margin-top: 0;
+    color: #fff;
+    text-shadow: 0 10px 26px rgba(0,0,0,.55);
   }
-  .subtitle{ font-size: 13px; }
+  .kicker, .and, .subtitle{ color: rgba(255,255,255,.90); }
+  .badge{ background: rgba(0,0,0,.25); color: #fff; border-color: rgba(255,255,255,.18); }
 
-  /* 4) Countdown: more transparent + more premium */
+  /* Countdown = more transparent */
   .countdownWrap{
-    background: rgba(255,255,255,.10);     /* more transparent */
-    border: 1px solid rgba(255,255,255,.18);
-    backdrop-filter: blur(10px);
-  }
-  .countBox{
-    background: rgba(0,0,0,.18);           /* more transparent */
+    background: rgba(0,0,0,.18);
     border: 1px solid rgba(255,255,255,.16);
   }
-
-  /* Pills: not plain white */
-  .pillLink{
-    background: rgba(255,255,255,.55);
-    border: 1px solid rgba(255,255,255,.35);
-    backdrop-filter: blur(10px);
+  .countTitle{ color: rgba(255,255,255,.92); }
+  .countBox{
+    background: rgba(0,0,0,.18);
+    border: 1px solid rgba(255,255,255,.14);
   }
-}
-
-/* ===== Make overall page less "white sheet" and more romantic ===== */
-body{
-  background:
-    radial-gradient(900px 600px at 15% 10%, rgba(255,170,200,.22), transparent 60%),
-    radial-gradient(900px 600px at 85% 20%, rgba(217,164,65,.12), transparent 60%),
-    linear-gradient(180deg, #fff3f7, #f7f0ff);
-}
-
-.card{
-  background: rgba(255,255,255,.65);
-  border: 1px solid rgba(31,41,55,.10);
-}
-
-.box{
-  background: rgba(255,255,255,.60);
-  border: 1px solid rgba(31,41,55,.10);
+  .num{ color: #fff; }
+  .lbl{ color: rgba(255,255,255,.82); }
+  .countNote{ color: rgba(255,255,255,.85); }
 }

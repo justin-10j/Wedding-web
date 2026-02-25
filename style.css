@@ -3,7 +3,8 @@
   --bg1:#fff7fb;
   --bg2:#fff1f6;
 
-  --card: rgba(255,255,255,.82);
+  --card: rgba(255,255,255,.72);
+  --shadow: 0 18px 55px rgba(31,41,55,.22);
   --text:#1f2937;
   --muted:#6b7280;
 
@@ -11,7 +12,6 @@
   --maroon:#7a1f2b;
   --gold:#d9a441;
 
-  --shadow: 0 18px 55px rgba(31,41,55,.16);
   --radius: 22px;
 }
 
@@ -23,8 +23,8 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color:var(--text);
   background:
-    radial-gradient(900px 600px at 15% 10%, rgba(255,170,200,.28), transparent 60%),
-    radial-gradient(900px 600px at 85% 20%, rgba(217,164,65,.18), transparent 60%),
+    radial-gradient(900px 600px at 15% 10%, rgba(255,170,200,.20), transparent 60%),
+    radial-gradient(900px 600px at 85% 20%, rgba(217,164,65,.12), transparent 60%),
     linear-gradient(180deg, var(--bg1), var(--bg2));
 }
 
@@ -380,23 +380,56 @@ textarea{ resize: vertical; }
   white-space: pre-wrap;
 }
 
-/* Responsive */
 @media (max-width: 720px){
   .grid{ grid-template-columns: 1fr; }
   .box.full{ grid-column: auto; }
   .countGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-  .hero{ height: 620px; }
+  .hero{ height: 660px; }
 
-  /* Mobile: keep photo clear, text sits on bright bottom */
+  /* Keep the photo clear */
+  .heroImg{
+    object-position: center 25%;
+  }
+
+  /* Put content in a bottom glass card (no face overlap) */
   .overlay{
     justify-content:flex-end;
-    padding:22px 16px;
+    padding: 14px;
+    gap:10px;
+
+    /* No big white wash over the image */
     background: linear-gradient(180deg,
-      rgba(255,255,255,0) 0%,
-      rgba(255,255,255,.10) 48%,
-      rgba(255,255,255,.92) 100%);
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.08) 55%,
+      rgba(0,0,0,.35) 100%);
   }
+
+  /* Make the text area itself a readable card */
+  .badge{ margin-bottom: 6px; }
+
+  .kicker, .and, .subtitle{ color: rgba(255,255,255,.90); }
+
+  .title{
+    color: #fff;
+    text-shadow: 0 10px 26px rgba(0,0,0,.55);
+  }
+
+  /* Turn countdown into a glass card */
+  .countdownWrap{
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.20);
+    backdrop-filter: blur(10px);
+  }
+
+  .countTitle{ color: rgba(255,255,255,.92); }
+  .countBox{
+    background: rgba(0,0,0,.28);
+    border: 1px solid rgba(255,255,255,.18);
+  }
+  .num{ color: #fff; }
+  .lbl{ color: rgba(255,255,255,.80); }
+  .countNote{ color: rgba(255,255,255,.85); }
 }
 
 .pillLink{

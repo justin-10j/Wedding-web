@@ -1,15 +1,14 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Wedding Invitation//EN
 CALSCALE:GREGORIAN
-METHOD:PUBLISH
+PRODID:-//Wedding Invite//EN
 BEGIN:VEVENT
-UID:jerin-ann-wedding-20260525T113000@invite
-DTSTAMP:20260225T000000Z
-DTSTART:20260525T113000
-DTEND:20260525T140000
+UID:jerin-ann-wedding
+DTSTAMP:20260525T060000Z
+DTSTART:20260525T060000Z
+DTEND:20260525T083000Z
 SUMMARY:Wedding | Jerin John & Ann Taniya Peirera
 LOCATION:St. Mary's Kadheeshtha Orthodox Church, Thumpamon North, Kerala
-DESCRIPTION:Wedding Ceremony at St. Mary's Kadheeshtha Orthodox Church. Reception: Church Auditorium.
+DESCRIPTION:Wedding Ceremony followed by Reception at Church Auditorium.
 END:VEVENT
 END:VCALENDAR

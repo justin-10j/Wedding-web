@@ -428,10 +428,17 @@ textarea{ resize: vertical; }
 
 /* ===== Mobile ===== */
 @media (max-width: 720px){
-  .wrap{
-    padding: 14px 12px;
-    align-items: flex-start;
+
+  .hero{
+    height: 520px;   /* reduce height */
   }
+
+  .overlay{
+    padding: 10px 14px;  /* less top space */
+    gap: 6px;
+  }
+
+}
 
   .grid{ grid-template-columns: 1fr; }
   .box.full{ grid-column: auto; }
@@ -477,4 +484,48 @@ textarea{ resize: vertical; }
   .num{ color: #fff; }
   .lbl{ color: rgba(255,255,255,.82); }
   .countNote{ color: rgba(255,255,255,.85); }
+}
+
+
+/* ===== HEADER TEXT VISIBILITY FIX ===== */
+
+.overlay{
+  padding-top: 10px !important;  /* remove top gap */
+}
+
+.title{
+  color: #ffffff !important;
+  text-shadow: 0 6px 18px rgba(0,0,0,.65);
+}
+
+.kicker,
+.and,
+.subtitle{
+  color: rgba(255,255,255,.95) !important;
+}
+
+.badge{
+  margin-top: 0 !important;
+}
+
+/* ===== WISH WALL CONTRAST FIX ===== */
+
+.wishCard{
+  background: rgba(122,31,43,.12) !important;
+  border: 1px solid rgba(122,31,43,.25);
+}
+
+.wishNameWall{
+  color: #5b1b27 !important;
+  font-weight: 900;
+}
+
+.wishMsgWall{
+  color: #3b1a20 !important;
+  font-weight: 500;
+}
+
+input, textarea{
+  background: rgba(255,255,255,.90) !important;
+  color: #3b1a20 !important;
 }

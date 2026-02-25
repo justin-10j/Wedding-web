@@ -200,10 +200,26 @@ body{
 }
 
 .box{
-  background: rgba(255,255,255,.78);
-  border: 1px solid rgba(31,41,55,.10);
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,.55),
+    rgba(255,255,255,.35)
+  );
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,255,255,.45);
   border-radius: 18px;
   padding:16px 16px 14px;
+
+  box-shadow:
+    0 10px 25px rgba(122,31,43,.08),
+    inset 0 1px 0 rgba(255,255,255,.6);
+}
+
+.grid{
+  gap:18px;   /* was 14px */
 }
 
 .box.full{ grid-column: 1 / -1; }
@@ -231,9 +247,18 @@ body{
 }
 
 .divider{
-  margin:14px 0;
-  height:1px;
-  background: rgba(31,41,55,.10);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(122,31,43,.25),
+    transparent
+  );
+}
+
+.box h2{
+  color:#6b1d2b;
+  font-weight:900;
+  letter-spacing:.02em;
 }
 
 .wishes{
@@ -265,8 +290,20 @@ body{
 .btn:hover{ transform: translateY(-1px); opacity:.95; }
 
 .btn.secondary{
-  background: rgba(122,31,43,.14);
-  border: 1px solid rgba(122,31,43,.18);
+  background: linear-gradient(
+    135deg,
+    #f7d9a6,
+    #e8b86a
+  );
+  color:#3b1a0f;
+  border: none;
+  box-shadow: 0 6px 14px rgba(217,164,65,.35);
+}
+
+.card{
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.5);
 }
 
 .btn.ghost{

@@ -445,3 +445,82 @@ textarea{ resize: vertical; }
   text-decoration:none;
 }
 .pillLink:hover{ opacity:.95; }
+
+/* ===== Mobile polish (paste-at-end overrides) ===== */
+@media (max-width: 720px){
+
+  /* 1) remove extra space feeling */
+  .wrap{
+    padding: 14px 12px;
+    align-items: flex-start;
+  }
+
+  .card{
+    border-radius: 18px;
+  }
+
+  /* 2) Make hero smaller + move faces up so text won't overlap */
+  .hero{
+    height: 560px;              /* reduced from 660 */
+  }
+  .heroImg{
+    object-position: center 10%; /* shows faces higher (less overlap) */
+  }
+
+  /* 3) Put overlay content lower without huge gap */
+  .overlay{
+    padding: 12px;
+    gap: 8px;
+    justify-content: flex-end;
+
+    /* Dark, subtle gradient so photo stays visible */
+    background: linear-gradient(180deg,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.08) 60%,
+      rgba(0,0,0,.32) 100%);
+  }
+
+  /* Make text smaller on mobile so it doesn't spread over face */
+  .title{
+    font-size: 32px;
+    line-height: 1.02;
+    margin-top: 0;
+  }
+  .subtitle{ font-size: 13px; }
+
+  /* 4) Countdown: more transparent + more premium */
+  .countdownWrap{
+    background: rgba(255,255,255,.10);     /* more transparent */
+    border: 1px solid rgba(255,255,255,.18);
+    backdrop-filter: blur(10px);
+  }
+  .countBox{
+    background: rgba(0,0,0,.18);           /* more transparent */
+    border: 1px solid rgba(255,255,255,.16);
+  }
+
+  /* Pills: not plain white */
+  .pillLink{
+    background: rgba(255,255,255,.55);
+    border: 1px solid rgba(255,255,255,.35);
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* ===== Make overall page less "white sheet" and more romantic ===== */
+body{
+  background:
+    radial-gradient(900px 600px at 15% 10%, rgba(255,170,200,.22), transparent 60%),
+    radial-gradient(900px 600px at 85% 20%, rgba(217,164,65,.12), transparent 60%),
+    linear-gradient(180deg, #fff3f7, #f7f0ff);
+}
+
+.card{
+  background: rgba(255,255,255,.65);
+  border: 1px solid rgba(31,41,55,.10);
+}
+
+.box{
+  background: rgba(255,255,255,.60);
+  border: 1px solid rgba(31,41,55,.10);
+}

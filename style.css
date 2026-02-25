@@ -41,23 +41,36 @@ body{
   border: 1px solid rgba(255,255,255,.12);
 }
 
-.hero{ position:relative; height: 470px; background:#111; }
+.hero{
+  position:relative;
+  height: min(560px, 72vh);
+  background:#fff;
+}
+
+
 .heroImg{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position: center 20%; /* moves image down/up */
+  object-position: center 35%;
   display:block;
-  filter: contrast(1.05) saturate(1.05);
+  filter: none;
 }
 
-
-
 .overlay{
-  position:absolute; inset:0;
-  display:flex; flex-direction:column; justify-content:flex-end;
-  gap:6px; padding:28px 22px;
-  background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.80));
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  gap:8px;
+  padding:28px 22px;
+
+  background: linear-gradient(90deg,
+    rgba(255,255,255,.82) 0%,
+    rgba(255,255,255,.58) 42%,
+    rgba(255,255,255,.10) 70%,
+    rgba(255,255,255,0) 100%);
 }
 
 .badge{

@@ -568,3 +568,19 @@ input, textarea{
 .overlay{
   backdrop-filter: blur(2px);
 }
+
+/* Make all action buttons look like consistent banners */
+.actions .btn{
+  min-height: 44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+/* Optional: make banner buttons full-width on mobile */
+@media (max-width: 720px){
+  .actions .btn{
+    width: 100%;
+  }
+}

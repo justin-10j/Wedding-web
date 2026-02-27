@@ -93,6 +93,10 @@ body{
   letter-spacing:.08em;
   text-transform:uppercase;
 
+  letter-spacing:.05em;
+  font-weight:700;
+  text-transform:none; /* removes ALL CAPS feel */
+
   color: #5b1b27;
   background: rgba(255,243,247,.55);
   border: 1px solid rgba(122,31,43,.18);
@@ -528,4 +532,39 @@ textarea{ resize: vertical; }
 input, textarea{
   background: rgba(255,255,255,.90) !important;
   color: #3b1a20 !important;
+}
+
+/* ===== HEADER TEXT COLOR FIX ===== */
+
+/* Names */
+.title{
+  color: #5b1b27 !important;   /* deep maroon */
+  text-shadow: 0 2px 10px rgba(255,255,255,.35);
+}
+
+/* "WITH PRAYERS AND BLESSINGS" */
+.kicker{
+  color: #6b2735 !important;
+  font-weight: 600;
+}
+
+/* AND text */
+.and{
+  color: #7a1f2b !important;
+}
+
+/* subtitle line */
+.subtitle{
+  color: #4a1a23 !important;
+  font-weight: 500;
+}
+
+/* badge text */
+.badge{
+  color: #5b1b27 !important;
+  background: rgba(255,255,255,.65);
+}
+
+.overlay{
+  backdrop-filter: blur(2px);
 }

@@ -12,7 +12,6 @@
   /* Glass surfaces (tinted, not white) */
   --card: rgba(122,31,43,.06);
   --panel: rgba(122,31,43,.07);
-  --panel2: rgba(122,31,43,.10);
 
   --shadow: 0 18px 50px rgba(122,31,43,.18);
   --radius: 22px;
@@ -55,7 +54,7 @@ body{
 /* HERO */
 .hero{
   position:relative;
-  height: min(560px, 72vh);
+  height: min(540px, 70vh);
   background: transparent;
 }
 
@@ -65,6 +64,7 @@ body{
   object-fit:cover;
   object-position: center 35%;
   display:block;
+  filter:none; /* keep image sharp */
 }
 
 /* Desktop: tinted overlay from LEFT only (not white) */
@@ -75,11 +75,12 @@ body{
   flex-direction:column;
   justify-content:flex-end;
   gap:8px;
-  padding:28px 22px;
+  padding:18px 22px; /* reduced top gap */
 
+  /* IMPORTANT: no backdrop-filter here (it blurs the image) */
   background: linear-gradient(90deg,
-    rgba(255,243,247,.70) 0%,
-    rgba(255,243,247,.42) 44%,
+    rgba(255,243,247,.66) 0%,
+    rgba(255,243,247,.40) 44%,
     rgba(255,243,247,.10) 72%,
     rgba(255,243,247,0) 100%);
 }
@@ -88,14 +89,12 @@ body{
   align-self:flex-start;
   padding:8px 10px;
   border-radius: 999px;
-  font-weight:900;
   font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
 
+  /* casual look */
   letter-spacing:.05em;
   font-weight:700;
-  text-transform:none; /* removes ALL CAPS feel */
+  text-transform:none;
 
   color: #5b1b27;
   background: rgba(255,243,247,.55);
@@ -162,7 +161,7 @@ body{
 
 .countBox{
   background: rgba(122,31,43,.14);
-  border: 1px solid rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.20);
   border-radius: 14px;
   padding:10px 8px;
   text-align:center;
@@ -199,7 +198,6 @@ body{
   margin-bottom: 14px;
 }
 
-/* If you still use <div class="pill"> keep it styled */
 .pill{
   padding:10px 12px;
   border-radius: 999px;
@@ -318,18 +316,30 @@ body{
   box-shadow: 0 6px 14px rgba(217,164,65,.35);
 }
 
+/* You said you only want to change colors: make .ghost look like banner */
 .btn.ghost{
-  background: rgba(122,31,43,.10);
-  border: 1px solid rgba(122,31,43,.18);
-  color: rgba(59,26,32,.92);
+  background: linear-gradient(135deg, #f7d9a6, #e8b86a);
+  color:#3b1a0f;
+  border:none;
   font-weight:900;
+  box-shadow: 0 6px 14px rgba(217,164,65,.35);
 }
+.btn.ghost:hover{ transform: translateY(-1px); opacity:.95; }
 
 .actions{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
   margin-top: 14px;
+}
+
+/* Consistent button height + alignment */
+.actions .btn{
+  min-height: 44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
 }
 
 /* QR */
@@ -394,8 +404,7 @@ input, textarea{
   border-radius: 12px;
 
   border: 1px solid rgba(122,31,43,.18);
-  background: rgba(122,31,43,.06);
-
+  background: rgba(255,255,255,.88); /* readable inputs */
   color: rgba(59,26,32,.92);
   outline:none;
 }
@@ -411,8 +420,8 @@ textarea{ resize: vertical; }
 .wishCard{
   padding:12px;
   border-radius:16px;
-  border: 1px solid rgba(122,31,43,.15);
-  background: rgba(122,31,43,.06);
+  border: 1px solid rgba(122,31,43,.20);
+  background: rgba(255,255,255,.18); /* better contrast */
 }
 
 .wishHeader{
@@ -422,165 +431,65 @@ textarea{ resize: vertical; }
   margin-bottom: 6px;
 }
 
-.wishNameWall{ font-weight:900; color: #5b1b27; }
+.wishNameWall{ font-weight:900; color: #4a121c; }
 
 .wishMsgWall{
-  color: rgba(59,26,32,.86);
+  color: #2b0f14;
   line-height:1.5;
   white-space: pre-wrap;
 }
 
 /* ===== Mobile ===== */
 @media (max-width: 720px){
-
-  .hero{
-    height: 520px;   /* reduce height */
+  .wrap{
+    padding: 14px 12px;
+    align-items:flex-start;
   }
-
-  .overlay{
-    padding: 10px 14px;  /* less top space */
-    gap: 6px;
-  }
-
-}
 
   .grid{ grid-template-columns: 1fr; }
   .box.full{ grid-column: auto; }
   .countGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-  /* less tall hero = less top gap */
-  .hero{ height: 560px; }
+  .hero{ height: 520px; }               /* less top gap */
+  .heroImg{ object-position:center 12%; } /* keep faces visible */
 
-  /* Push faces up (reduces text-on-face overlap) */
-  .heroImg{ object-position: center 10%; }
-
-  /* Dark gentle gradient, not white */
+  /* mobile overlay: darker gradient for readability */
   .overlay{
-    justify-content:flex-end;
-    padding: 12px;
-    gap: 8px;
+    padding: 10px 14px;
+    gap: 6px;
     background: linear-gradient(180deg,
       rgba(0,0,0,0) 0%,
-      rgba(0,0,0,.08) 60%,
-      rgba(0,0,0,.32) 100%);
+      rgba(0,0,0,.10) 58%,
+      rgba(0,0,0,.34) 100%);
   }
 
-  /* Mobile text = smaller, cleaner */
+  /* mobile text */
   .title{
     font-size: 32px;
     line-height: 1.02;
-    color: #fff;
-    text-shadow: 0 10px 26px rgba(0,0,0,.55);
+    color: #5b1b27; /* dark text you asked */
+    text-shadow: 0 2px 10px rgba(255,255,255,.35);
   }
-  .kicker, .and, .subtitle{ color: rgba(255,255,255,.90); }
-  .badge{ background: rgba(0,0,0,.25); color: #fff; border-color: rgba(255,255,255,.18); }
+  .kicker, .and, .subtitle{ color: rgba(59,26,32,.92); }
+  .badge{
+    background: rgba(255,243,247,.70);
+    color: #5b1b27;
+    border-color: rgba(122,31,43,.18);
+  }
 
-  /* Countdown = more transparent */
+  /* mobile countdown more transparent */
   .countdownWrap{
     background: rgba(0,0,0,.18);
     border: 1px solid rgba(255,255,255,.16);
   }
-  .countTitle{ color: rgba(255,255,255,.92); }
+  .countTitle, .countNote{ color: rgba(255,255,255,.92); }
   .countBox{
     background: rgba(0,0,0,.18);
     border: 1px solid rgba(255,255,255,.14);
   }
   .num{ color: #fff; }
   .lbl{ color: rgba(255,255,255,.82); }
-  .countNote{ color: rgba(255,255,255,.85); }
-}
 
-
-/* ===== HEADER TEXT VISIBILITY FIX ===== */
-
-.overlay{
-  padding-top: 10px !important;  /* remove top gap */
-}
-
-.title{
-  color: #ffffff !important;
-  text-shadow: 0 6px 18px rgba(0,0,0,.65);
-}
-
-.kicker,
-.and,
-.subtitle{
-  color: rgba(255,255,255,.95) !important;
-}
-
-.badge{
-  margin-top: 0 !important;
-}
-
-/* ===== WISH WALL CONTRAST FIX ===== */
-
-.wishCard{
-  background: rgba(122,31,43,.12) !important;
-  border: 1px solid rgba(122,31,43,.25);
-}
-
-.wishNameWall{
-  color: #5b1b27 !important;
-  font-weight: 900;
-}
-
-.wishMsgWall{
-  color: #3b1a20 !important;
-  font-weight: 500;
-}
-
-input, textarea{
-  background: rgba(255,255,255,.90) !important;
-  color: #3b1a20 !important;
-}
-
-/* ===== HEADER TEXT COLOR FIX ===== */
-
-/* Names */
-.title{
-  color: #5b1b27 !important;   /* deep maroon */
-  text-shadow: 0 2px 10px rgba(255,255,255,.35);
-}
-
-/* "WITH PRAYERS AND BLESSINGS" */
-.kicker{
-  color: #6b2735 !important;
-  font-weight: 600;
-}
-
-/* AND text */
-.and{
-  color: #7a1f2b !important;
-}
-
-/* subtitle line */
-.subtitle{
-  color: #4a1a23 !important;
-  font-weight: 500;
-}
-
-/* badge text */
-.badge{
-  color: #5b1b27 !important;
-  background: rgba(255,255,255,.65);
-}
-
-.overlay{
-  backdrop-filter: blur(2px);
-}
-
-/* Make all action buttons look like consistent banners */
-.actions .btn{
-  min-height: 44px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
-
-/* Optional: make banner buttons full-width on mobile */
-@media (max-width: 720px){
-  .actions .btn{
-    width: 100%;
-  }
+  /* action buttons full width on mobile */
+  .actions .btn{ width:100%; }
 }

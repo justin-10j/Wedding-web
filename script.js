@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== GOOGLE CALENDAR =====
   // Wedding: 25 May 2026, 11:30 AM IST
-  const title = "Wedding | Jerin John & Ann Taniya Peirera";
+  const title = "Wedding | Jerin John & Ann Tania Peirera";
   const details = `Wedding Ceremony at ${VENUE_NAME}. Reception: ${RECEPTION_NAME}.`;
   const location = `${VENUE_NAME}`;
 

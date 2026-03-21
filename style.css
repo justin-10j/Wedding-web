@@ -1,19 +1,17 @@
 :root{
-  /* Romantic (NO white cards) */
-  --bg1:#fff3f7;
-  --bg2:#f7f0ff;
+  --bg1:#fff6f9;
+  --bg2:#f7f3ff;
 
-  --text:#3b1a20;
-  --muted:#7b5a60;
+  --text:#2b2b2b;
+  --muted:#6b6b6b;
 
-  --maroon:#7a1f2b;
-  --gold:#d9a441;
+  --gold:#c89b3c;
+  --gold-soft:#f3e0b5;
 
-  /* Glass surfaces (tinted, not white) */
-  --card: rgba(122,31,43,.06);
-  --panel: rgba(122,31,43,.07);
+  --card: rgba(255,255,255,.35);
+  --panel: rgba(255,255,255,.25);
 
-  --shadow: 0 18px 50px rgba(122,31,43,.18);
+  --shadow: 0 18px 50px rgba(0,0,0,.12);
   --radius: 22px;
 }
 
@@ -25,17 +23,18 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color:var(--text);
   background:
-    radial-gradient(900px 600px at 15% 10%, rgba(255,170,200,.22), transparent 60%),
-    radial-gradient(900px 600px at 85% 20%, rgba(217,164,65,.12), transparent 60%),
+    radial-gradient(900px 600px at 15% 10%, rgba(255,210,230,.25), transparent 60%),
+    radial-gradient(900px 600px at 85% 20%, rgba(200,155,60,.15), transparent 60%),
     linear-gradient(180deg, var(--bg1), var(--bg2));
 }
 
+/* Layout */
 .wrap{
   min-height:100%;
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:28px 16px;
+  padding:24px 14px;
 }
 
 .card{
@@ -44,30 +43,27 @@ body{
   overflow:hidden;
 
   background: var(--card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
 
   box-shadow: var(--shadow);
-  border: 1px solid rgba(122,31,43,.14);
+  border: 1px solid rgba(0,0,0,.05);
 }
 
 /* HERO */
 .hero{
   position:relative;
   height: min(540px, 70vh);
-  background: transparent;
 }
 
 .heroImg{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position: center 35%;
+  object-position: center 20%;
   display:block;
-  filter:none; /* keep image sharp */
 }
 
-/* Desktop: tinted overlay from LEFT only (not white) */
+/* Overlay (NO blur, clean gradient) */
 .overlay{
   position:absolute;
   inset:0;
@@ -75,421 +71,234 @@ body{
   flex-direction:column;
   justify-content:flex-end;
   gap:8px;
-  padding:18px 22px; /* reduced top gap */
+  padding:16px 22px;
 
-  /* IMPORTANT: no backdrop-filter here (it blurs the image) */
-  background: linear-gradient(90deg,
-    rgba(255,243,247,.66) 0%,
-    rgba(255,243,247,.40) 44%,
-    rgba(255,243,247,.10) 72%,
-    rgba(255,243,247,0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,.55) 0%,
+    rgba(255,255,255,.25) 40%,
+    rgba(255,255,255,0) 70%
+  );
 }
 
+/* Badge */
 .badge{
   align-self:flex-start;
-  padding:8px 10px;
-  border-radius: 999px;
+  padding:8px 12px;
+  border-radius:999px;
   font-size:12px;
+  font-weight:600;
 
-  /* casual look */
-  letter-spacing:.05em;
-  font-weight:700;
-  text-transform:none;
-
-  color: #5b1b27;
-  background: rgba(255,243,247,.55);
-  border: 1px solid rgba(122,31,43,.18);
+  color:#3a2a1f;
+  background: rgba(255,255,255,.7);
+  border: 1px solid rgba(0,0,0,.05);
 }
 
+/* Text */
 .kicker{
-  margin:6px 0 0;
-  letter-spacing:.12em;
-  text-transform:uppercase;
   font-size:12px;
-  color: rgba(59,26,32,.75);
+  letter-spacing:.12em;
+  color:#444;
 }
 
 .title{
   margin:0;
-  font-size: clamp(34px, 4.8vw, 56px);
-  line-height:1.05;
-  color:#5b1b27;
-  text-shadow:none;
+  font-size: clamp(32px, 4.5vw, 52px);
+  color:#2b2b2b;
+
+  /* Premium gold highlight */
+  text-shadow: 0 3px 10px rgba(255,255,255,.6);
 }
 
 .and{
-  margin:0;
   font-size:14px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color: rgba(59,26,32,.72);
+  color:#666;
 }
 
 .subtitle{
-  margin:6px 0 0;
-  font-size:15px;
-  color: rgba(59,26,32,.82);
-  max-width: 56ch;
+  font-size:14px;
+  color:#444;
 }
 
-/* Countdown (desktop) */
+/* Countdown */
 .countdownWrap{
-  margin-top: 14px;
-  padding: 12px;
-  border-radius: 16px;
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
 
-  background: rgba(122,31,43,.10);
-  border: 1px solid rgba(122,31,43,.18);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  max-width: 520px;
-}
-
-.countTitle{
-  font-weight:900;
-  color: rgba(59,26,32,.92);
-  margin-bottom: 8px;
+  background: rgba(0,0,0,.15);
+  border: 1px solid rgba(255,255,255,.2);
 }
 
 .countGrid{
   display:grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap:10px;
+  grid-template-columns: repeat(4,1fr);
+  gap:8px;
 }
 
 .countBox{
-  background: rgba(122,31,43,.14);
-  border: 1px solid rgba(255,255,255,.20);
-  border-radius: 14px;
-  padding:10px 8px;
+  background: rgba(0,0,0,.25);
+  border-radius:10px;
+  padding:8px;
   text-align:center;
 }
 
 .num{
-  font-size:22px;
-  font-weight:900;
-  color: #5b1b27;
-  line-height:1.1;
+  font-size:20px;
+  font-weight:800;
+  color:#fff;
 }
 
 .lbl{
-  margin-top:4px;
-  font-size:12px;
-  color: rgba(59,26,32,.72);
-  letter-spacing:.08em;
-  text-transform:uppercase;
+  font-size:11px;
+  color:rgba(255,255,255,.85);
 }
 
 .countNote{
-  margin-top:8px;
-  font-size:12px;
-  color: rgba(59,26,32,.78);
+  font-size:11px;
+  color:#fff;
 }
 
 /* Content */
-.content{ padding: 18px 18px 16px; }
+.content{ padding:16px; }
 
 .pillRow{
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom: 14px;
-}
-
-.pill{
-  padding:10px 12px;
-  border-radius: 999px;
-  background: rgba(122,31,43,.10);
-  border: 1px solid rgba(122,31,43,.18);
-  color: rgba(59,26,32,.92);
-  font-weight:900;
-}
-
-/* If you use <a class="pillLink"> for phone calendar */
-.pillLink{
-  display:inline-flex;
-  align-items:center;
   gap:8px;
-  padding:10px 12px;
+  flex-wrap:wrap;
+}
+
+.pill, .pillLink{
+  padding:8px 12px;
   border-radius:999px;
-
-  background: rgba(122,31,43,.10);
-  border: 1px solid rgba(122,31,43,.18);
-
-  color: rgba(59,26,32,.92);
-  font-weight:900;
+  background: rgba(255,255,255,.6);
+  border:1px solid rgba(0,0,0,.05);
+  font-weight:600;
+  color:#333;
   text-decoration:none;
 }
-.pillLink:hover{ opacity:.95; }
 
+/* Grid */
 .grid{
   display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:18px;
+  grid-template-columns: repeat(2,1fr);
+  gap:14px;
 }
 
 .box{
   background: var(--panel);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  border: 1px solid rgba(122,31,43,.18);
-  border-radius: 18px;
-  padding:16px 16px 14px;
-
-  box-shadow:
-    0 10px 25px rgba(122,31,43,.10),
-    inset 0 1px 0 rgba(255,255,255,.25);
+  backdrop-filter: blur(12px);
+  border-radius:16px;
+  padding:14px;
+  border:1px solid rgba(0,0,0,.05);
 }
 
-.box.full{ grid-column: 1 / -1; }
-
 .box h2{
-  margin:0 0 10px;
-  font-size:16px;
-  font-weight:900;
-  letter-spacing:.02em;
-  color:#6b1d2b;
+  font-size:15px;
+  color:#3a2a1f;
 }
 
 .big{
-  font-size:18px;
-  margin:0 0 4px;
-  color: rgba(59,26,32,.92);
+  font-size:16px;
 }
 
-.muted{ color: var(--muted); }
-.tiny{ font-size: 12px; }
+.muted{ color:var(--muted); }
 
-.message{
-  margin:0;
-  color: rgba(59,26,32,.78);
-  line-height:1.6;
-}
-
+/* Divider */
 .divider{
-  margin:14px 0;
   height:1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(122,31,43,.28),
-    transparent
-  );
+  background: linear-gradient(90deg,transparent,var(--gold),transparent);
 }
-
-.wishes{
-  list-style:none;
-  padding:0;
-  margin:10px 0 0;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.wishName{ color: #5b1b27; font-weight:900; }
-.wishText{ color: rgba(59,26,32,.82); }
 
 /* Buttons */
 .btn{
-  display:inline-block;
-  margin-top:10px;
   padding:10px 14px;
-  border-radius: 12px;
-
-  color:#3b1a20;
-  background: rgba(217,164,65,.85);
-  border: 1px solid rgba(122,31,43,.12);
-
+  border-radius:10px;
+  font-weight:700;
   text-decoration:none;
-  font-weight:900;
-  transition: transform .12s ease, opacity .12s ease;
-}
-.btn:hover{ transform: translateY(-1px); opacity:.95; }
-
-.btn.secondary{
-  background: linear-gradient(135deg, #f7d9a6, #e8b86a);
-  color:#3b1a0f;
-  border: none;
-  box-shadow: 0 6px 14px rgba(217,164,65,.35);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 }
 
-/* You said you only want to change colors: make .ghost look like banner */
+/* GOLD BUTTON */
+.btn.secondary,
 .btn.ghost{
-  background: linear-gradient(135deg, #f7d9a6, #e8b86a);
-  color:#3b1a0f;
+  background: linear-gradient(135deg,#f3e0b5,#c89b3c);
+  color:#3a2a1f;
   border:none;
-  font-weight:900;
-  box-shadow: 0 6px 14px rgba(217,164,65,.35);
+  box-shadow: 0 6px 14px rgba(200,155,60,.35);
 }
-.btn.ghost:hover{ transform: translateY(-1px); opacity:.95; }
 
 .actions{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
-  margin-top: 14px;
-}
-
-/* Consistent button height + alignment */
-.actions .btn{
-  min-height: 44px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
 }
 
 /* QR */
 .qrBlock{
-  margin-top:14px;
   padding:12px;
   border-radius:14px;
-
-  background: rgba(122,31,43,.08);
-  border: 1px solid rgba(122,31,43,.18);
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:8px;
+  background: rgba(255,255,255,.3);
+  text-align:center;
 }
 
-.qrTitle{ font-weight:900; color: rgba(59,26,32,.92); }
-
-#qrImg{
-  width: 180px;
-  height: 180px;
-  border-radius: 10px;
-  background: #fff;
-  padding: 6px;
-  display: block;
-}
-
-.footer{
-  margin-top:14px;
-  padding-top:12px;
-  border-top: 1px solid rgba(122,31,43,.15);
-  display:flex;
-  gap:10px;
-  justify-content:space-between;
-  flex-wrap:wrap;
-}
-.footItem{ font-size:13px; }
-
-/* ===== Wishes page ===== */
-.miniHero{
-  padding: 22px;
-  background: rgba(122,31,43,.06);
-  border-bottom: 1px solid rgba(122,31,43,.15);
-}
-.miniOverlay{ display:flex; flex-direction:column; gap:10px; }
-
-.miniTitle{
-  margin:0;
-  font-size: clamp(26px, 4vw, 40px);
-  color: #5b1b27;
-}
-
-.navRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 6px; }
-
-.form{ display:flex; flex-direction:column; gap:12px; }
-
-input, textarea{
-  width:100%;
-  margin-top:6px;
-  padding:10px 12px;
-  border-radius: 12px;
-
-  border: 1px solid rgba(122,31,43,.18);
-  background: rgba(255,255,255,.88); /* readable inputs */
-  color: rgba(59,26,32,.92);
-  outline:none;
-}
-textarea{ resize: vertical; }
-
-.wall{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  margin-top: 10px;
-}
-
+/* Wishes */
 .wishCard{
-  padding:12px;
-  border-radius:16px;
-  border: 1px solid rgba(122,31,43,.20);
-  background: rgba(255,255,255,.18); /* better contrast */
+  background: rgba(255,255,255,.45);
+  border-radius:12px;
+  padding:10px;
 }
 
-.wishHeader{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom: 6px;
+.wishNameWall{
+  font-weight:700;
+  color:#3a2a1f;
 }
-
-.wishNameWall{ font-weight:900; color: #4a121c; }
 
 .wishMsgWall{
-  color: #2b0f14;
-  line-height:1.5;
-  white-space: pre-wrap;
+  color:#333;
 }
 
-/* ===== Mobile ===== */
-@media (max-width: 720px){
-  .wrap{
-    padding: 14px 12px;
-    align-items:flex-start;
+/* Mobile */
+@media (max-width:720px){
+
+  .hero{
+    height:500px;
   }
 
-  .grid{ grid-template-columns: 1fr; }
-  .box.full{ grid-column: auto; }
-  .countGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .heroImg{
+    object-position:center 15%;
+  }
 
-  .hero{ height: 520px; }               /* less top gap */
-  .heroImg{ object-position:center 12%; } /* keep faces visible */
-
-  /* mobile overlay: darker gradient for readability */
   .overlay{
-    padding: 10px 14px;
-    gap: 6px;
-    background: linear-gradient(180deg,
+    padding:10px;
+    background: linear-gradient(
+      180deg,
       rgba(0,0,0,0) 0%,
-      rgba(0,0,0,.10) 58%,
-      rgba(0,0,0,.34) 100%);
+      rgba(0,0,0,.15) 60%,
+      rgba(0,0,0,.35) 100%
+    );
   }
 
-  /* mobile text */
   .title{
-    font-size: 32px;
-    line-height: 1.02;
-    color: #5b1b27; /* dark text you asked */
-    text-shadow: 0 2px 10px rgba(255,255,255,.35);
-  }
-  .kicker, .and, .subtitle{ color: rgba(59,26,32,.92); }
-  .badge{
-    background: rgba(255,243,247,.70);
-    color: #5b1b27;
-    border-color: rgba(122,31,43,.18);
+    color:#fff;
+    text-shadow: 0 6px 18px rgba(0,0,0,.6);
   }
 
-  /* mobile countdown more transparent */
+  .kicker,.and,.subtitle{
+    color:rgba(255,255,255,.9);
+  }
+
   .countdownWrap{
-    background: rgba(0,0,0,.18);
-    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(0,0,0,.25);
   }
-  .countTitle, .countNote{ color: rgba(255,255,255,.92); }
-  .countBox{
-    background: rgba(0,0,0,.18);
-    border: 1px solid rgba(255,255,255,.14);
-  }
-  .num{ color: #fff; }
-  .lbl{ color: rgba(255,255,255,.82); }
 
-  /* action buttons full width on mobile */
-  .actions .btn{ width:100%; }
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .actions .btn{
+    width:100%;
+  }
 }

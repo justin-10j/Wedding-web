@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const note = document.getElementById("countNote");
 
   // 25 May 2026 11:00 IST = 06:00 UTC
-  const weddingUTC = Date.UTC(2026, 4, 25, 6, 0, 0);
+  const weddingDate = new Date("2026-05-25T11:00:00+05:30").getTime();
 
   function pad(n) {
     return String(n).padStart(2, "0");
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function tick() {
     if (!dd || !hh || !mm || !ss) return;
 
-    const diff = weddingUTC - Date.now();
+    const diff = weddingDate - Date.now();
 
     if (diff <= 0) {
       dd.textContent = "00";

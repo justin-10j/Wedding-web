@@ -508,3 +508,68 @@ textarea{ resize: vertical; }
     width: 100%;
   }
 }
+
+/* ===== HERO TEXT READABILITY FIX ===== */
+
+/* Darker left-side overlay only for text area */
+.overlay{
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.38) 0%,
+    rgba(0,0,0,.22) 35%,
+    rgba(0,0,0,.08) 58%,
+    rgba(0,0,0,0) 78%
+  ) !important;
+}
+
+/* Badge */
+.badge{
+  color: #ffe7a3 !important;
+  background: rgba(0,0,0,.28) !important;
+  border: 1px solid rgba(255,231,163,.28) !important;
+}
+
+/* Small heading lines */
+.kicker,
+.and,
+.subtitle{
+  color: #fff4cf !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,.65) !important;
+}
+
+/* Main names */
+.title{
+  color: #ffd76a !important;
+  text-shadow:
+    0 1px 0 rgba(70,40,0,.95),
+    0 2px 0 rgba(70,40,0,.85),
+    0 6px 14px rgba(0,0,0,.55) !important;
+}
+
+/* Mobile: make text area even more readable */
+@media (max-width: 720px){
+  .overlay{
+    background: linear-gradient(
+      180deg,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.18) 48%,
+      rgba(0,0,0,.48) 100%
+    ) !important;
+  }
+
+  .title{
+    font-size: 34px !important;
+    color: #ffd76a !important;
+  }
+
+  .kicker,
+  .and,
+  .subtitle{
+    color: #fff6d8 !important;
+  }
+
+  .badge{
+    color: #ffe7a3 !important;
+    background: rgba(0,0,0,.32) !important;
+  }
+}

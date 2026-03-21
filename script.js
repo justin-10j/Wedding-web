@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===== GOOGLE CALENDAR =====
-  // Wedding: 25 May 2026, 11:30 AM IST
+  // Wedding: 25 May 2026, 11:00 AM IST
   const title = "Wedding | Jerin John & Ann Tania Peirera";
   const details = `Wedding Ceremony at ${VENUE_NAME}. Reception: ${RECEPTION_NAME}.`;
   const location = `${VENUE_NAME}`;
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // OPTIONAL: make date/time pills clickable if you add these IDs in HTML:
   // <a class="pillLink" id="datePill" ...>📅 25 May 2026</a>
-  // <a class="pillLink" id="timePill" ...>🕰️ 11:30 AM (IST)</a>
+  // <a class="pillLink" id="timePill" ...>🕰️ 11:00 AM (IST)</a>
   const datePill = document.getElementById("datePill");
   if (datePill) datePill.href = gcalUrl;
 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ss = document.getElementById("ss");
   const note = document.getElementById("countNote");
 
-  // 25 May 2026 11:30 IST = 06:00 UTC
+  // 25 May 2026 11:00 IST = 06:00 UTC
   const weddingUTC = Date.UTC(2026, 4, 25, 6, 0, 0);
 
   function pad(n) {
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mm.textContent = pad(minutes);
     ss.textContent = pad(seconds);
 
-    if (note) note.textContent = "⛪ Ceremony begins at 11:30 AM IST";
+    if (note) note.textContent = "⛪ Ceremony begins at 11:00 AM IST";
   }
 
   tick();

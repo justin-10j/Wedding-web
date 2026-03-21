@@ -65,6 +65,7 @@ body{
   object-fit:cover;
   object-position: center 35%;
   display:block;
+  filter:none;
 }
 
 /* Desktop: tinted overlay from LEFT only (not white) */
@@ -75,7 +76,7 @@ body{
   flex-direction:column;
   justify-content:flex-end;
   gap:8px;
-  padding:28px 22px;
+  padding:18px 22px;
 
   background: linear-gradient(90deg,
     rgba(255,243,247,.70) 0%,
@@ -88,18 +89,14 @@ body{
   align-self:flex-start;
   padding:8px 10px;
   border-radius: 999px;
-  font-weight:900;
   font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-
   letter-spacing:.05em;
   font-weight:700;
-  text-transform:none; /* removes ALL CAPS feel */
+  text-transform:none;
 
-  color: #5b1b27;
+  color: #7a5a1a;
   background: rgba(255,243,247,.55);
-  border: 1px solid rgba(122,31,43,.18);
+  border: 1px solid rgba(217,164,65,.28);
 }
 
 .kicker{
@@ -107,15 +104,18 @@ body{
   letter-spacing:.12em;
   text-transform:uppercase;
   font-size:12px;
-  color: rgba(59,26,32,.75);
+  color: #8d6b23;
+  font-weight: 600;
 }
 
 .title{
   margin:0;
   font-size: clamp(34px, 4.8vw, 56px);
   line-height:1.05;
-  color:#5b1b27;
-  text-shadow:none;
+  color:#d9a441;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.55),
+    0 3px 10px rgba(59,26,32,.18);
 }
 
 .and{
@@ -123,13 +123,14 @@ body{
   font-size:14px;
   letter-spacing:.16em;
   text-transform:uppercase;
-  color: rgba(59,26,32,.72);
+  color: #9a7728;
 }
 
 .subtitle{
   margin:6px 0 0;
   font-size:15px;
-  color: rgba(59,26,32,.82);
+  color: #7a5f20;
+  font-weight: 500;
   max-width: 56ch;
 }
 
@@ -332,6 +333,15 @@ body{
   margin-top: 14px;
 }
 
+/* Make all action buttons look aligned */
+.actions .btn{
+  min-height: 44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
 /* QR */
 .qrBlock{
   margin-top:14px;
@@ -432,32 +442,26 @@ textarea{ resize: vertical; }
 
 /* ===== Mobile ===== */
 @media (max-width: 720px){
-
-  .hero{
-    height: 520px;   /* reduce height */
+  .wrap{
+    padding: 14px 12px;
+    align-items:flex-start;
   }
-
-  .overlay{
-    padding: 10px 14px;  /* less top space */
-    gap: 6px;
-  }
-
-}
 
   .grid{ grid-template-columns: 1fr; }
   .box.full{ grid-column: auto; }
   .countGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-  /* less tall hero = less top gap */
-  .hero{ height: 560px; }
+  .hero{
+    height: 520px;
+  }
 
-  /* Push faces up (reduces text-on-face overlap) */
-  .heroImg{ object-position: center 10%; }
+  .heroImg{
+    object-position: center 10%;
+  }
 
-  /* Dark gentle gradient, not white */
   .overlay{
     justify-content:flex-end;
-    padding: 12px;
+    padding: 12px 14px;
     gap: 8px;
     background: linear-gradient(180deg,
       rgba(0,0,0,0) 0%,
@@ -465,17 +469,28 @@ textarea{ resize: vertical; }
       rgba(0,0,0,.32) 100%);
   }
 
-  /* Mobile text = smaller, cleaner */
+  /* mobile hero text also premium gold */
   .title{
     font-size: 32px;
     line-height: 1.02;
-    color: #fff;
-    text-shadow: 0 10px 26px rgba(0,0,0,.55);
+    color: #f2d27a;
+    text-shadow:
+      0 1px 0 rgba(59,26,32,.55),
+      0 6px 14px rgba(0,0,0,.45);
   }
-  .kicker, .and, .subtitle{ color: rgba(255,255,255,.90); }
-  .badge{ background: rgba(0,0,0,.25); color: #fff; border-color: rgba(255,255,255,.18); }
 
-  /* Countdown = more transparent */
+  .kicker,
+  .and,
+  .subtitle{
+    color: #f7e9b8;
+  }
+
+  .badge{
+    background: rgba(0,0,0,.22);
+    color: #f2d27a;
+    border-color: rgba(242,210,122,.30);
+  }
+
   .countdownWrap{
     background: rgba(0,0,0,.18);
     border: 1px solid rgba(255,255,255,.16);
@@ -488,98 +503,7 @@ textarea{ resize: vertical; }
   .num{ color: #fff; }
   .lbl{ color: rgba(255,255,255,.82); }
   .countNote{ color: rgba(255,255,255,.85); }
-}
 
-
-/* ===== HEADER TEXT VISIBILITY FIX ===== */
-
-.overlay{
-  padding-top: 10px !important;  /* remove top gap */
-}
-
-.title{
-  color: #ffffff !important;
-  text-shadow: 0 6px 18px rgba(0,0,0,.65);
-}
-
-.kicker,
-.and,
-.subtitle{
-  color: rgba(255,255,255,.95) !important;
-}
-
-.badge{
-  margin-top: 0 !important;
-}
-
-/* ===== WISH WALL CONTRAST FIX ===== */
-
-.wishCard{
-  background: rgba(122,31,43,.12) !important;
-  border: 1px solid rgba(122,31,43,.25);
-}
-
-.wishNameWall{
-  color: #5b1b27 !important;
-  font-weight: 900;
-}
-
-.wishMsgWall{
-  color: #3b1a20 !important;
-  font-weight: 500;
-}
-
-input, textarea{
-  background: rgba(255,255,255,.90) !important;
-  color: #3b1a20 !important;
-}
-
-/* ===== HEADER TEXT COLOR FIX ===== */
-
-/* Names */
-.title{
-  color: #5b1b27 !important;   /* deep maroon */
-  text-shadow: 0 2px 10px rgba(255,255,255,.35);
-}
-
-/* "WITH PRAYERS AND BLESSINGS" */
-.kicker{
-  color: #6b2735 !important;
-  font-weight: 600;
-}
-
-/* AND text */
-.and{
-  color: #7a1f2b !important;
-}
-
-/* subtitle line */
-.subtitle{
-  color: #4a1a23 !important;
-  font-weight: 500;
-}
-
-/* badge text */
-.badge{
-  color: #5b1b27 !important;
-  background: rgba(255,255,255,.65);
-}
-
-.overlay{
-  backdrop-filter: blur(2px);
-}
-
-/* Make all action buttons look like consistent banners */
-.actions .btn{
-  min-height: 44px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
-
-/* Optional: make banner buttons full-width on mobile */
-@media (max-width: 720px){
   .actions .btn{
     width: 100%;
   }

@@ -1,5 +1,4 @@
 :root{
-  /* Romantic (NO white cards) */
   --bg1:#fff3f7;
   --bg2:#f7f0ff;
 
@@ -9,10 +8,8 @@
   --maroon:#7a1f2b;
   --gold:#d9a441;
 
-  /* Glass surfaces (tinted, not white) */
   --card: rgba(122,31,43,.06);
   --panel: rgba(122,31,43,.07);
-  --panel2: rgba(122,31,43,.10);
 
   --shadow: 0 18px 50px rgba(122,31,43,.18);
   --radius: 22px;
@@ -43,11 +40,9 @@ body{
   width:min(980px, 100%);
   border-radius:var(--radius);
   overflow:hidden;
-
   background: var(--card);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-
   box-shadow: var(--shadow);
   border: 1px solid rgba(122,31,43,.14);
 }
@@ -68,7 +63,7 @@ body{
   filter:none;
 }
 
-/* Desktop: tinted overlay from LEFT only (not white) */
+/* darker readable overlay for hero text */
 .overlay{
   position:absolute;
   inset:0;
@@ -77,26 +72,26 @@ body{
   justify-content:flex-end;
   gap:8px;
   padding:18px 22px;
-
-  background: linear-gradient(90deg,
-    rgba(255,243,247,.70) 0%,
-    rgba(255,243,247,.42) 44%,
-    rgba(255,243,247,.10) 72%,
-    rgba(255,243,247,0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.42) 0%,
+    rgba(0,0,0,.24) 36%,
+    rgba(0,0,0,.08) 58%,
+    rgba(0,0,0,0) 78%
+  );
 }
 
 .badge{
   align-self:flex-start;
   padding:8px 10px;
-  border-radius: 999px;
+  border-radius:999px;
   font-size:12px;
   letter-spacing:.05em;
   font-weight:700;
   text-transform:none;
-
-  color: #7a5a1a;
-  background: rgba(255,243,247,.55);
-  border: 1px solid rgba(217,164,65,.28);
+  color:#ffe7a3;
+  background: rgba(0,0,0,.30);
+  border:1px solid rgba(255,231,163,.28);
 }
 
 .kicker{
@@ -104,18 +99,19 @@ body{
   letter-spacing:.12em;
   text-transform:uppercase;
   font-size:12px;
-  color: #8d6b23;
-  font-weight: 600;
+  color:#fff6d8;
+  text-shadow: 0 2px 8px rgba(0,0,0,.65);
 }
 
 .title{
   margin:0;
   font-size: clamp(34px, 4.8vw, 56px);
   line-height:1.05;
-  color:#d9a441;
+  color:#ffd76a;
   text-shadow:
-    0 1px 0 rgba(255,255,255,.55),
-    0 3px 10px rgba(59,26,32,.18);
+    0 1px 0 rgba(70,40,0,.95),
+    0 2px 0 rgba(70,40,0,.85),
+    0 6px 14px rgba(0,0,0,.55);
 }
 
 .and{
@@ -123,35 +119,33 @@ body{
   font-size:14px;
   letter-spacing:.16em;
   text-transform:uppercase;
-  color: #9a7728;
+  color:#fff6d8;
+  text-shadow: 0 2px 8px rgba(0,0,0,.65);
 }
 
 .subtitle{
   margin:6px 0 0;
   font-size:15px;
-  color: #7a5f20;
-  font-weight: 500;
-  max-width: 56ch;
+  color:#fff6d8;
+  text-shadow: 0 2px 8px rgba(0,0,0,.65);
+  max-width:56ch;
 }
 
-/* Countdown (desktop) */
+/* Countdown */
 .countdownWrap{
   margin-top: 14px;
   padding: 12px;
   border-radius: 16px;
-
   background: rgba(122,31,43,.10);
   border: 1px solid rgba(122,31,43,.18);
-
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-
   max-width: 520px;
 }
 
 .countTitle{
   font-weight:900;
-  color: rgba(59,26,32,.92);
+  color: rgba(255,255,255,.92);
   margin-bottom: 8px;
 }
 
@@ -172,14 +166,14 @@ body{
 .num{
   font-size:22px;
   font-weight:900;
-  color: #5b1b27;
+  color: #fff;
   line-height:1.1;
 }
 
 .lbl{
   margin-top:4px;
   font-size:12px;
-  color: rgba(59,26,32,.72);
+  color: rgba(255,255,255,.82);
   letter-spacing:.08em;
   text-transform:uppercase;
 }
@@ -187,7 +181,7 @@ body{
 .countNote{
   margin-top:8px;
   font-size:12px;
-  color: rgba(59,26,32,.78);
+  color: rgba(255,255,255,.85);
 }
 
 /* Content */
@@ -200,7 +194,6 @@ body{
   margin-bottom: 14px;
 }
 
-/* If you still use <div class="pill"> keep it styled */
 .pill{
   padding:10px 12px;
   border-radius: 999px;
@@ -210,17 +203,14 @@ body{
   font-weight:900;
 }
 
-/* If you use <a class="pillLink"> for phone calendar */
 .pillLink{
   display:inline-flex;
   align-items:center;
   gap:8px;
   padding:10px 12px;
   border-radius:999px;
-
   background: rgba(122,31,43,.10);
   border: 1px solid rgba(122,31,43,.18);
-
   color: rgba(59,26,32,.92);
   font-weight:900;
   text-decoration:none;
@@ -237,11 +227,9 @@ body{
   background: var(--panel);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-
   border: 1px solid rgba(122,31,43,.18);
   border-radius: 18px;
   padding:16px 16px 14px;
-
   box-shadow:
     0 10px 25px rgba(122,31,43,.10),
     inset 0 1px 0 rgba(255,255,255,.25);
@@ -301,11 +289,9 @@ body{
   margin-top:10px;
   padding:10px 14px;
   border-radius: 12px;
-
   color:#3b1a20;
   background: rgba(217,164,65,.85);
   border: 1px solid rgba(122,31,43,.12);
-
   text-decoration:none;
   font-weight:900;
   transition: transform .12s ease, opacity .12s ease;
@@ -333,7 +319,6 @@ body{
   margin-top: 14px;
 }
 
-/* Make all action buttons look aligned */
 .actions .btn{
   min-height: 44px;
   display:inline-flex;
@@ -347,10 +332,8 @@ body{
   margin-top:14px;
   padding:12px;
   border-radius:14px;
-
   background: rgba(122,31,43,.08);
   border: 1px solid rgba(122,31,43,.18);
-
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -379,7 +362,7 @@ body{
 }
 .footItem{ font-size:13px; }
 
-/* ===== Wishes page ===== */
+/* Wishes page */
 .miniHero{
   padding: 22px;
   background: rgba(122,31,43,.06);
@@ -402,10 +385,8 @@ input, textarea{
   margin-top:6px;
   padding:10px 12px;
   border-radius: 12px;
-
   border: 1px solid rgba(122,31,43,.18);
   background: rgba(122,31,43,.06);
-
   color: rgba(59,26,32,.92);
   outline:none;
 }
@@ -440,7 +421,7 @@ textarea{ resize: vertical; }
   white-space: pre-wrap;
 }
 
-/* ===== Mobile ===== */
+/* Mobile */
 @media (max-width: 720px){
   .wrap{
     padding: 14px 12px;
@@ -463,32 +444,35 @@ textarea{ resize: vertical; }
     justify-content:flex-end;
     padding: 12px 14px;
     gap: 8px;
-    background: linear-gradient(180deg,
+    background: linear-gradient(
+      180deg,
       rgba(0,0,0,0) 0%,
-      rgba(0,0,0,.08) 60%,
-      rgba(0,0,0,.32) 100%);
+      rgba(0,0,0,.18) 48%,
+      rgba(0,0,0,.48) 100%
+    );
   }
 
-  /* mobile hero text also premium gold */
   .title{
-    font-size: 32px;
+    font-size: 34px;
     line-height: 1.02;
-    color: #f2d27a;
+    color: #ffd76a;
     text-shadow:
-      0 1px 0 rgba(59,26,32,.55),
-      0 6px 14px rgba(0,0,0,.45);
+      0 1px 0 rgba(70,40,0,.95),
+      0 2px 0 rgba(70,40,0,.85),
+      0 6px 14px rgba(0,0,0,.55);
   }
 
   .kicker,
   .and,
   .subtitle{
-    color: #f7e9b8;
+    color:#fff6d8;
+    text-shadow: 0 2px 8px rgba(0,0,0,.65);
   }
 
   .badge{
-    background: rgba(0,0,0,.22);
-    color: #f2d27a;
-    border-color: rgba(242,210,122,.30);
+    color:#ffe7a3;
+    background: rgba(0,0,0,.32);
+    border-color: rgba(255,231,163,.30);
   }
 
   .countdownWrap{
@@ -506,70 +490,5 @@ textarea{ resize: vertical; }
 
   .actions .btn{
     width: 100%;
-  }
-}
-
-/* ===== HERO TEXT READABILITY FIX ===== */
-
-/* Darker left-side overlay only for text area */
-.overlay{
-  background: linear-gradient(
-    90deg,
-    rgba(0,0,0,.38) 0%,
-    rgba(0,0,0,.22) 35%,
-    rgba(0,0,0,.08) 58%,
-    rgba(0,0,0,0) 78%
-  ) !important;
-}
-
-/* Badge */
-.badge{
-  color: #ffe7a3 !important;
-  background: rgba(0,0,0,.28) !important;
-  border: 1px solid rgba(255,231,163,.28) !important;
-}
-
-/* Small heading lines */
-.kicker,
-.and,
-.subtitle{
-  color: #fff4cf !important;
-  text-shadow: 0 2px 8px rgba(0,0,0,.65) !important;
-}
-
-/* Main names */
-.title{
-  color: #ffd76a !important;
-  text-shadow:
-    0 1px 0 rgba(70,40,0,.95),
-    0 2px 0 rgba(70,40,0,.85),
-    0 6px 14px rgba(0,0,0,.55) !important;
-}
-
-/* Mobile: make text area even more readable */
-@media (max-width: 720px){
-  .overlay{
-    background: linear-gradient(
-      180deg,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,.18) 48%,
-      rgba(0,0,0,.48) 100%
-    ) !important;
-  }
-
-  .title{
-    font-size: 34px !important;
-    color: #ffd76a !important;
-  }
-
-  .kicker,
-  .and,
-  .subtitle{
-    color: #fff6d8 !important;
-  }
-
-  .badge{
-    color: #ffe7a3 !important;
-    background: rgba(0,0,0,.32) !important;
   }
 }
